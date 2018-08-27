@@ -1,0 +1,57 @@
+<!-- 
+https://github.com/aframevr/aframe/
+https://github.com/jeromeetienne/AR.js/
+-->
+
+<html>
+<head>
+	<script src="https://aframe.io/releases/0.8.2/aframe.min.js"></script>
+	<script src="https://cdn.rawgit.com/jeromeetienne/AR.js/0694b414/aframe/build/aframe-ar.min.js"></script>
+	<script src="//cdn.rawgit.com/donmccurdy/aframe-extras/v4.1.1/dist/aframe-extras.min.js"></script>
+	<script src="https://cdn.rawgit.com/mrdoob/three.js/dev/examples/js/libs/inflate.min.js"></script>
+</head>
+<body style="margin:0;">
+	<a-scene embedded arjs="
+		debugUIEnabled: false; 
+		detectionMode: mono; 
+		maxDetectionRate: 30;
+		sourceType: webcam;
+		xsourceType: image;
+		xsourceUrl: ../ar-marker.png;
+		xcanvasWidth: 240;
+		xcanvasHeight: 180;
+		cameraParametersUrl: ../camera_para.dat">
+		<a-marker-camera
+			camera="
+				fov: 40;
+				zoom: 1;
+				far: 10000;
+				near: 1;"
+			type="pattern"
+			url="../pattern-marker.patt">
+
+			<!-- MODELS -->
+			<a-entity
+				id="model"
+				position="0 0.02 0"
+				scale="0.0045 0.0045 0.0045"
+				fbx-model="src: url(../dancer6.fbx)"
+				animation-mixer="clip: *;"
+			></a-entity>
+
+			<!-- LIGHTS -->
+			<a-light type="ambient" color="#fff"></a-light>
+			<a-entity
+				id="sunlight"
+				position="0 1 0"
+				light="
+					type: hemisphere;
+					color: #bbbbff;
+					groundColor: #444422;
+					intensity: 0.5"
+			></a-entity>
+			
+		</a-marker-camera>
+	</a-scene>
+</body>
+</html>

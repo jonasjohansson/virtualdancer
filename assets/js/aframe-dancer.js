@@ -80,7 +80,7 @@ AFRAME.registerComponent('dancer', {
 
 		this.el.object3D.position.set(pos.x,pos.y,pos.z);
 		this.el.object3D.rotation.set(rot.x,rot.y,rot.z);
-		// this.el.setAttribute('particles',`origin: ${pos.x} ${pos.y} ${pos.z};`);
+		this.el.setAttribute('particles',`origin: ${pos.x} ${pos.y} ${pos.z};`);
 	},
 
 	tick() {

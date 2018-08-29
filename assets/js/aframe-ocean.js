@@ -46,7 +46,7 @@ AFRAME.registerComponent('ocean', {
 
 		var parameters = {
 			distance: 400,
-			inclination: 0.49,
+			inclination: 2.49,
 			azimuth: 0.205
 		};
 
@@ -79,7 +79,7 @@ AFRAME.registerComponent('ocean', {
 
 	tick() {
 
-		this.water.material.uniforms.time.value += 1.0 / 20.0;
+		this.water.material.uniforms.time.value += 1.0 / 360.0;
 				
 	}
 });

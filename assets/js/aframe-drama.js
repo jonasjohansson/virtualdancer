@@ -21,10 +21,11 @@ AFRAME.registerComponent('drama', {
 	init() {},
 
 	tick() {
-		const value = Math.sin(this.el.sceneEl.time / 1000)
+		const value = Math.sin((this.el.sceneEl.time / 8000) - Math.PI)
 		const normalisedValue = cast(1, 0, 1, -1, value)
-		const modifiedNormalisedValue = Math.pow(normalisedValue, 3)
+		const modifiedNormalisedValue = Math.pow(normalisedValue, 2)
 		this.intensity = modifiedNormalisedValue
+		// console.log(this.intensity)
 	}
 
 })

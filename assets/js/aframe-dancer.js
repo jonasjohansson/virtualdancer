@@ -3,7 +3,7 @@ AFRAME.registerComponent('dancer', {
 	schema: {
 		src: {default: ''},
 		life: {default: 5000},
-		fade: {default: 1000},
+		fade: {default: 2000},
 	},
 
 	init() {
@@ -31,7 +31,8 @@ AFRAME.registerComponent('dancer', {
 			console.log(self.el.components['animation-mixer'].mixer)
 			self.el.components['animation-mixer'].mixer.timeScale = 0;
 			setTimeout(()=>{
-				self.el.components['animation-mixer'].mixer.timeScale = Math.random()*2;
+				// self.el.components['animation-mixer'].mixer.timeScale = Math.random()*2;
+				self.el.components['animation-mixer'].mixer.timeScale = 1;
 			},delay);
 
 			// stopSound() is necessary for iOS to properly play it
@@ -57,6 +58,10 @@ AFRAME.registerComponent('dancer', {
 			},data.life);
 		});
 
+		setInterval(()=>{
+
+		},Math.random()*10000);
+
 	},
 
 	update() {
@@ -78,7 +83,7 @@ AFRAME.registerComponent('dancer', {
 		if (this.mat === null) return;
 		let opacity = this.el.getAttribute('opacity');
 		this.mat.opacity = opacity;
-		// console.log(opacity);
+		// console.log(opacity); 
 
 		this.el.components.sound.pool.children[0].gain.gain.value = opacity;
 	}

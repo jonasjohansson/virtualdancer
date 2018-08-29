@@ -33,6 +33,10 @@ AFRAME.registerComponent('dancer', {
 			setTimeout(()=>{
 				self.el.components['animation-mixer'].mixer.timeScale = Math.random()*2;
 			},delay);
+
+			// stopSound() is necessary for iOS to properly play it
+			this.el.components.sound.stopSound();
+			this.el.components.sound.playSound();
 		});
 
 		this.el.setAttribute('fbx-model',`src: url(${data.src});`);
@@ -68,7 +72,6 @@ AFRAME.registerComponent('dancer', {
 		this.el.object3D.position.set(pos.x,pos.y,pos.z);
 		this.el.object3D.rotation.set(rot.x,rot.y,rot.z);
 		// this.el.setAttribute('particles',`origin: ${pos.x} ${pos.y} ${pos.z};`);
-
 	},
 
 	tick() {
@@ -76,5 +79,7 @@ AFRAME.registerComponent('dancer', {
 		let opacity = this.el.getAttribute('opacity');
 		this.mat.opacity = opacity;
 		// console.log(opacity);
+
+		this.el.components.sound.pool.children[0].gain.gain.value = opacity;
 	}
 });

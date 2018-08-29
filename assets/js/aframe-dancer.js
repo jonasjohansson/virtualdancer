@@ -24,7 +24,9 @@ AFRAME.registerComponent('dancer', {
 		this.el.addEventListener('model-loaded', ()=>{
 			// console.log(this.el.components['fbx-model'].model);
 			self.mat = this.el.components['fbx-model'].model.children[0].material;
+
 			self.mat.transparent = true;
+			self.mat.wireframe = true;
 			self.mat.opacity = 0;
 			self.mat.needsUpdate = true;
 			self.el.object3D.scale.set(scale,scale,scale);
@@ -96,7 +98,14 @@ AFRAME.registerComponent('dancer', {
 
 		this.visibility = visibility
 
+		if (this.visibility === 0){
+			this.mat.visible = false;
+		} else {
+			this.mat.visible = true;
+		}
+
 		this.el.components.sound.pool.children[0].gain.gain.value = this.visibility;
 		this.mat.opacity = this.visibility;
+
 	}
 });

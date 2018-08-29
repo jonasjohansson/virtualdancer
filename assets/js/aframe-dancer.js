@@ -38,8 +38,8 @@ AFRAME.registerComponent('dancer', {
 			},delay);
 
 			// stopSound() is necessary for iOS to properly play it
-			// this.el.components.sound.stopSound();
-			// this.el.components.sound.playSound();
+			this.el.components.sound.stopSound();
+			this.el.components.sound.playSound();
 		});
 
 		this.el.setAttribute('fbx-model',`src: url(${data.src});`);

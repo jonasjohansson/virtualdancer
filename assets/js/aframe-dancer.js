@@ -14,7 +14,8 @@ AFRAME.registerComponent('dancer', {
 
 		this.mat = null;
 
-		const delay = Math.random()*4000;
+		const delay = Math.random()*6000;
+		const scale = 0.02;
 
 		// wait for fbx to be loaded
 		this.el.addEventListener('model-loaded', ()=>{
@@ -23,7 +24,8 @@ AFRAME.registerComponent('dancer', {
 			self.mat.transparent = true;
 			self.mat.opacity = 0;
 			self.mat.needsUpdate = true;
-			this.updatePosition();
+			self.el.object3D.scale.set(scale,scale,scale);
+			this.update();
 		});
 
 		this.el.setAttribute('animation-mixer','clip: *;');
@@ -35,7 +37,7 @@ AFRAME.registerComponent('dancer', {
 		let dir = null;
 
 		this.el.addEventListener('animationbegin', ()=>{
-			if (dir === 'normal') self.updatePosition();
+			if (dir === 'normal') self.update();
 		});
 
 		this.el.addEventListener('animationcomplete', ()=>{
@@ -48,15 +50,15 @@ AFRAME.registerComponent('dancer', {
 
 	},
 
-	updatePosition() {
+	update() {
 
 		console.log('update position');
 
 		const dist = 40;
-		const deg = 20;
+		const deg = 90;
 		
 		let pos = {x:(dist/2)-Math.random()*dist,y:0,z:(dist/2)-Math.random()*dist};
-		let rot = {x:0,y:0,z:0};
+		let rot = {x:0,y:(deg/2)-Math.random()*deg,z:0};
 
 		this.el.object3D.position.set(pos.x,pos.y,pos.z);
 		this.el.object3D.rotation.set(rot.x,rot.y,rot.z);

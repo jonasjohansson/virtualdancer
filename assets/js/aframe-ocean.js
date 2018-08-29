@@ -79,7 +79,7 @@ AFRAME.registerComponent('ocean', {
 
 	tick() {
 
-				this.water.material.uniforms.time.value += 1.0 / 120.0;
+				this.water.material.uniforms.time.value += 1.0 / 240.0;
 				
 	}
 });

@@ -1,5 +1,5 @@
 AFRAME.registerComponent('dancer', {
-	
+
 	schema: {
 		src: {default: ''},
 		life: {default: 5000},
@@ -11,19 +11,14 @@ AFRAME.registerComponent('dancer', {
 
 		const data = this.data;
 
-		this.c = new THREE.Clock();
-
-
-		this.scene = this.el.sceneEl.object3D;
-
-		this.scene.osc = 0;
-
 		var self = this;
 
 		this.mat = null;
 
 		const delay = Math.random()*10000;
 		const scale = 0.02;
+
+		this.visibility = 0
 
 		// wait for fbx to be loaded
 		this.el.addEventListener('model-loaded', ()=>{
@@ -34,7 +29,7 @@ AFRAME.registerComponent('dancer', {
 			self.mat.needsUpdate = true;
 			self.el.object3D.scale.set(scale,scale,scale);
 			this.update();
-			self.el.setAttribute('animation',`property: opacity; from: 0; to: 1; dur: ${data.fade}; autoplay: true; delay: ${delay};`);
+			// self.el.setAttribute('animation',`property: opacity; from: 0; to: 1; dur: ${data.fade}; autoplay: true; delay: ${delay};`);
 			self.el.setAttribute('animation-mixer','clip: *;');
 			self.el.components['animation-mixer'].mixer.timeScale = 0;
 			setTimeout(()=>{
@@ -43,27 +38,27 @@ AFRAME.registerComponent('dancer', {
 			},delay);
 
 			// stopSound() is necessary for iOS to properly play it
-			this.el.components.sound.stopSound();
-			this.el.components.sound.playSound();
+			// this.el.components.sound.stopSound();
+			// this.el.components.sound.playSound();
 		});
 
 		this.el.setAttribute('fbx-model',`src: url(${data.src});`);
 
-		const start = new Event('start');
+		// const start = new Event('start');
 
-		let dir = null;
+		// let dir = null;
 
-		this.el.addEventListener('animationbegin', ()=>{
-			if (dir === 'normal') self.update();
-		});
+		// this.el.addEventListener('animationbegin', ()=>{
+		// 	if (dir === 'normal') self.update();
+		// });
 
-		this.el.addEventListener('animationcomplete', ()=>{
-			setTimeout(()=>{
-				dir = (dir === 'reverse') ? 'normal' : 'reverse';
-				self.el.setAttribute('animation', `dir: ${dir};`);
-				self.el.dispatchEvent(start);
-			},data.life);
-		});
+		// this.el.addEventListener('animationcomplete', ()=>{
+		// 	setTimeout(()=>{
+		// 		dir = (dir === 'reverse') ? 'normal' : 'reverse';
+		// 		self.el.setAttribute('animation', `dir: ${dir};`);
+		// 		self.el.dispatchEvent(start);
+		// 	},data.life);
+		// });
 
 		setInterval(()=>{
 			let dancers = document.querySelectorAll['fbx']
@@ -77,7 +72,7 @@ AFRAME.registerComponent('dancer', {
 
 		const dist = 40;
 		const deg = 90;
-		
+
 		let pos = {x:(dist/2)-Math.random()*dist,y:0,z:(dist/2)-Math.random()*dist};
 		let rot = {x:0,y:(deg/2)-Math.random()*deg,z:0};
 
@@ -88,16 +83,20 @@ AFRAME.registerComponent('dancer', {
 
 	tick() {
 		if (this.mat === null) return;
-		let opacity = this.el.getAttribute('opacity');
-		// console.log(opacity); 
 
-		const elapsed = this.c.getElapsedTime();
-		this.scene.osc = Math.sin(elapsed/100);
+		const sceneIntensity = this.el.sceneEl.components.drama.intensity
+		const intensityDistance = Math.abs(sceneIntensity - this.data.intensity)
+		const visibility = intensityDistance < 0.3
+			? (0.3 - intensityDistance) / 0.3
+			: 0
 
-		let val = this.scene.osc*this.data.intensity;
+		if (visibility === 0 && this.visibility > 0) {
+			this.update()
+		}
 
-		this.el.components.sound.pool.children[0].gain.gain.value = val;
-		this.mat.opacity = val;
+		this.visibility = visibility
 
+		this.el.components.sound.pool.children[0].gain.gain.value = this.visibility;
+		this.mat.opacity = this.visibility;
 	}
 });

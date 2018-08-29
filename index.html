@@ -17,13 +17,18 @@
 	<script src="./assets/js/aframe-ocean.js"></script>
 	<script src="./assets/js/aframe-dancer.js"></script>
 	<script src="./assets/js/aframe-particles.js"></script>
+	<script src="./assets/js/aframe-drama.js"></script>
 
 	<script src="./assets/js/app.js"></script>
 
 	<link rel="shortcut icon" href="./assets/favicon.ico">
 </head>
 <body>
-	<a-scene keyboard-controls fog="type: exponential; near: 1; far: 100; density: 0.025; color: #000">
+	<a-scene
+		keyboard-controls
+		fog="type: exponential; near: 1; far: 100; density: 0.025; color: #000"
+		drama="speed: 1;"
+	>
 		<a-assets>
 	    <a-asset-item response-type="arraybuffer" id="pad1" src="assets/audio/vd-1-pad1.mp3" preload="auto"></audio>
 	    <a-asset-item response-type="arraybuffer" id="pad2" src="assets/audio/vd-1-pad2.mp3" preload="auto"></audio>
@@ -66,42 +71,50 @@
 
 		<!-- <a-entity environment="preset: arches; groundColor: #445; "></a-entity> -->
 
-		<a-entity 
-			dancer="src: ./assets/models/outdoor-take-13_DM2.fbx; life: 5000; intensity: 1;"
-			sound="src: #pad1; autoplay: false; loop: true;" 
-		></a-entity>
-
-		<a-entity 
-			dancer="src: ./assets/models/outdoor-take-13_DM2.fbx; life: 5000; intensity: 1;"
-			sound="src: #pad2; autoplay: false; loop: true;" 
+		<a-entity
+			dancer="src: ./assets/models/outdoor-take-13_DM2.fbx; life: 5000; intensity: 0.1;"
+			sound="src: #pad1; autoplay: false; loop: true;"
 		></a-entity>
 
 		<a-entity
-			dancer="src: ./assets/models/outdoor-take-13_DM2.fbx; life: 5000; intensity: 1;"
+			dancer="src: ./assets/models/outdoor-take-13_DM2.fbx; life: 5000; intensity: 0.15;"
+			sound="src: #pad2; autoplay: false; loop: true;"
+		></a-entity>
+
+		<a-entity
+			dancer="src: ./assets/models/outdoor-take-13_DM2.fbx; life: 5000; intensity: 0.15;"
 			sound="src: #pad3; autoplay: false; loop: true;"
 		></a-entity>
 
 		<a-entity
-			dancer="src: ./assets/models/outdoor-take-13_DM2.fbx; life: 5000; intensity: 1;"
+			dancer="src: ./assets/models/outdoor-take-13_DM2.fbx; life: 5000; intensity: 0.2;"
 			sound="src: #pad4; autoplay: false; loop: true;"
 		></a-entity>
 
 		<a-entity
-			dancer="src: ./assets/models/outdoor-take-13_DM2.fbx; life: 5000; intensity: 1;"
+			dancer="src: ./assets/models/outdoor-take-13_DM2.fbx; life: 5000; intensity: 0.5;"
 			sound="src: #pad5; autoplay: false; loop: true;"
 		></a-entity>
 
 		<a-entity
-			dancer="src: ./assets/models/outdoor-take-13_DM2.fbx; life: 5000; intensity: 1;"
+			dancer="src: ./assets/models/outdoor-take-13_DM2.fbx; life: 5000; intensity: 0.7;"
 			sound="src: #pad6; autoplay: false; loop: true;"
 		></a-entity>
 
-		<a-entity 
+		<a-entity
 			dancer="src: ./assets/models/outdoor-take-13_DM2.fbx; life: 5000; intensity: 1;"
 			sound="src: #flying_lead; autoplay: false; loop: true;"
 		></a-entity>
-		<a-entity sound="src: #hihat; autoplay: false; loop: true; group: 2;" dancer="src: ./assets/models/outdoor-take-13_DM2.fbx; life: 5000; intensity: 1;"></a-entity>
-		<a-entity sound="src: #sh_jam3; autoplay: false; loop: true; group: 3;" dancer="src: ./assets/models/outdoor-take-13_DM2.fbx; life: 5000; intensity: 1;"></a-entity>
+
+		<a-entity
+			sound="src: #hihat; autoplay: false; loop: true; group: 2;"
+			dancer="src: ./assets/models/outdoor-take-13_DM2.fbx; life: 5000; intensity: 1;"
+		></a-entity>
+
+		<a-entity
+			sound="src: #sh_jam3; autoplay: false; loop: true; group: 3;"
+			dancer="src: ./assets/models/outdoor-take-13_DM2.fbx; life: 5000; intensity: 1;"
+		></a-entity>
 
 	</a-scene>
 </body>

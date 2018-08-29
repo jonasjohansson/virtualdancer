@@ -28,8 +28,8 @@
 	<a-scene
 		keyboard-controls
 		fog="type: exponential; near: 1; far: 100; density: 0.025; color: #000"
-		drama="speed: 1;"
-	>
+		drama="speed: 1;">
+
 		<a-assets>
 	    <a-asset-item response-type="arraybuffer" id="pad1" src="assets/audio/vd-1-pad1.mp3" preload="auto"></audio>
 	    <a-asset-item response-type="arraybuffer" id="pad2" src="assets/audio/vd-1-pad2.mp3" preload="auto"></audio>
@@ -40,7 +40,13 @@
 	    <a-asset-item response-type="arraybuffer" id="flying_lead" src="assets/audio/vd-1-flying_lead.mp3" preload="auto"></audio>
 	    <a-asset-item response-type="arraybuffer" id="hihat" src="assets/audio/vd-1-hihat.mp3" preload="auto"></audio>
 	    <a-asset-item response-type="arraybuffer" id="sh_jam3" src="assets/audio/vd-1-sh_jam3.mp3" preload="auto"></audio>
-	  </a-assets>
+	    			<a-asset-item id="mountain-gltf" src="./assets/models/mountain.glb"></a-asset-item>
+	  	</a-assets>
+
+		<!-- <a-entity id="mountain"
+			positon="0 -400 0"
+			gltf-model="#mountain-gltf"
+			shadow="receive: true;"></a-entity> -->
 
 		<a-entity id="camera"
 			position="0 6 8"
@@ -79,7 +85,7 @@
 		<a-entity sound="src: #pad5; autoplay: true; loop: true; volume: 0;" drama-layer="intensity-level: 1;"/></a-entity>
 		<a-entity sound="src: #pad6; autoplay: true; loop: true; volume: 0;" drama-layer="intensity-level: 2;"/></a-entity>
 
-		<a-entity
+		<!-- <a-entity
 			dancer="src: ./assets/models/outdoor-take-13_DM2.fbx; life: 5000; intensity: 0.1;"
 			sound="src: ./assets/audio/vd-1-air.mp3; autoplay: false; loop: true;"
 		></a-entity>
@@ -102,40 +108,40 @@
 		<a-entity
 			dancer="src: ./assets/models/outdoor-take-13_DM2.fbx; life: 5000; intensity: 0.4;"
 			sound="src: ./assets/audio/vd-1-melody1.mp3; autoplay: false; loop: true; group: 3;"
-		></a-entity>
+		></a-entity> -->
 
-		<a-entity
-			dancer="src: ./assets/models/outdoor-take-13_DM2.fbx; life: 5000; intensity: 0.5;"
+		<!-- <a-entity
+			dancer="src: ./assets/models/AliOut-s1t15-moving_mid.fbx; life: 5000; intensity: 0.5;"
 			sound="src: ./assets/audio/vd-1-melody2.mp3; autoplay: false; loop: true; group: 3;"
 		></a-entity>
 
 		<a-entity
-			dancer="src: ./assets/models/outdoor-take-13_DM2.fbx; life: 5000; intensity: 0.6;"
+			dancer="src: ./assets/models/AliOut-s1t12-dancing_mid.fbx; life: 5000; intensity: 0.6;"
 			sound="src: ./assets/audio/vd-1-melody3.mp3; autoplay: false; loop: true; group: 3;"
-		></a-entity>
+		></a-entity> -->
 
-		<a-entity
+		<!-- <a-entity
 			dancer="src: ./assets/models/outdoor-take-13_DM2.fbx; life: 5000; intensity: 0.8;"
 			sound="src: ./assets/audio/vd-1-hihat.mp3; autoplay: false; loop: true; group: 2;"
-		></a-entity>
+		></a-entity> -->
 
-		<a-entity
+		<!-- <a-entity
 			dancer="src: ./assets/models/outdoor-take-13_DM2.fbx; life: 5000; intensity: 1;"
 			sound="src: ./assets/audio/vd-1-flying_lead.mp3; autoplay: false; loop: true;"
-		></a-entity>
+		></a-entity> -->
 
-		<a-entity
+		<!-- <a-entity
 			dancer="src: ./assets/models/outdoor-take-13_DM2.fbx; life: 5000; intensity: 1;"
 			sound="src: ./assets/audio/vd-1-arp1.mp3; autoplay: false; loop: true;"
-		></a-entity>
+		></a-entity> -->
 
-		<a-entity
+		<!-- <a-entity
 			dancer="src: ./assets/models/outdoor-take-13_DM2.fbx; life: 5000; intensity: 1;"
 			sound="src: ./assets/audio/vd-1-arp2.mp3; autoplay: false; loop: true;"
-		></a-entity>
+		></a-entity> -->
 
 		<a-entity
-			dancer="src: ./assets/models/outdoor-take-13_DM2.fbx; life: 5000; intensity: 1;"
+			dancer="src: ./assets/models/AliOut-s1t13-dancing_high.fbx; life: 5000; intensity: 1;"
 			sound="src: ./assets/audio/vd-1-hihat_16ths.mp3; autoplay: false; loop: true;"
 		></a-entity>
 

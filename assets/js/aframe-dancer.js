@@ -4,11 +4,19 @@ AFRAME.registerComponent('dancer', {
 		src: {default: ''},
 		life: {default: 5000},
 		fade: {default: 2000},
+		intensity: {default: 0.5},
 	},
 
 	init() {
 
 		const data = this.data;
+
+		this.c = new THREE.Clock();
+
+
+		this.scene = this.el.sceneEl.object3D;
+
+		this.scene.osc = 0;
 
 		var self = this;
 
@@ -19,7 +27,7 @@ AFRAME.registerComponent('dancer', {
 
 		// wait for fbx to be loaded
 		this.el.addEventListener('model-loaded', ()=>{
-			console.log(this.el.components['fbx-model'].model);
+			// console.log(this.el.components['fbx-model'].model);
 			self.mat = this.el.components['fbx-model'].model.children[0].material;
 			self.mat.transparent = true;
 			self.mat.opacity = 0;
@@ -28,7 +36,6 @@ AFRAME.registerComponent('dancer', {
 			this.update();
 			self.el.setAttribute('animation',`property: opacity; from: 0; to: 1; dur: ${data.fade}; autoplay: true; delay: ${delay};`);
 			self.el.setAttribute('animation-mixer','clip: *;');
-			console.log(self.el.components['animation-mixer'].mixer)
 			self.el.components['animation-mixer'].mixer.timeScale = 0;
 			setTimeout(()=>{
 				// self.el.components['animation-mixer'].mixer.timeScale = Math.random()*2;
@@ -59,14 +66,14 @@ AFRAME.registerComponent('dancer', {
 		});
 
 		setInterval(()=>{
-
+			let dancers = document.querySelectorAll['fbx']
 		},Math.random()*10000);
 
 	},
 
 	update() {
 
-		console.log('update position');
+		// console.log('update position');
 
 		const dist = 40;
 		const deg = 90;
@@ -82,9 +89,15 @@ AFRAME.registerComponent('dancer', {
 	tick() {
 		if (this.mat === null) return;
 		let opacity = this.el.getAttribute('opacity');
-		this.mat.opacity = opacity;
 		// console.log(opacity); 
 
-		this.el.components.sound.pool.children[0].gain.gain.value = opacity;
+		const elapsed = this.c.getElapsedTime();
+		this.scene.osc = Math.sin(elapsed/100);
+
+		let val = this.scene.osc*this.data.intensity;
+
+		this.el.components.sound.pool.children[0].gain.gain.value = val;
+		this.mat.opacity = val;
+
 	}
 });

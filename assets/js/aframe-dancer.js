@@ -14,7 +14,7 @@ AFRAME.registerComponent('dancer', {
 
 		this.mat = null;
 
-		const delay = Math.random()*6000;
+		const delay = Math.random()*10000;
 		const scale = 0.02;
 
 		// wait for fbx to be loaded
@@ -26,11 +26,16 @@ AFRAME.registerComponent('dancer', {
 			self.mat.needsUpdate = true;
 			self.el.object3D.scale.set(scale,scale,scale);
 			this.update();
+			self.el.setAttribute('animation',`property: opacity; from: 0; to: 1; dur: ${data.fade}; autoplay: true; delay: ${delay};`);
+			self.el.setAttribute('animation-mixer','clip: *;');
+			console.log(self.el.components['animation-mixer'].mixer)
+			self.el.components['animation-mixer'].mixer.timeScale = 0;
+			setTimeout(()=>{
+				self.el.components['animation-mixer'].mixer.timeScale = Math.random()*2;
+			},delay);
 		});
 
-		this.el.setAttribute('animation-mixer','clip: *;');
 		this.el.setAttribute('fbx-model',`src: url(${data.src});`);
-		this.el.setAttribute('animation',`property: opacity; from: 0; to: 1; dur: ${data.fade}; autoplay: true; delay: ${delay};`);
 
 		const start = new Event('start');
 
@@ -62,6 +67,7 @@ AFRAME.registerComponent('dancer', {
 
 		this.el.object3D.position.set(pos.x,pos.y,pos.z);
 		this.el.object3D.rotation.set(rot.x,rot.y,rot.z);
+		// this.el.setAttribute('particles',`origin: ${pos.x} ${pos.y} ${pos.z};`);
 
 	},
 

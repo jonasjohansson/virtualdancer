@@ -34,7 +34,7 @@ AFRAME.registerComponent('ocean', {
 
 		var sky = new THREE.Sky();
 		sky.scale.setScalar( 10000 );
-		scene.add( sky );
+		// scene.add( sky );
 
 		var uniforms = sky.material.uniforms;
 
@@ -73,13 +73,13 @@ AFRAME.registerComponent('ocean', {
 
 		this.water = water;
 
-		updateSun();
+		// updateSun();
 	},
 
 
 	tick() {
 
-				this.water.material.uniforms.time.value += 1.0 / 240.0;
+		this.water.material.uniforms.time.value += 1.0 / 20.0;
 				
 	}
 });

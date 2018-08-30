@@ -25,8 +25,6 @@ AFRAME.registerComponent('dancer', {
 			self.el.setAttribute('animation-mixer', 'clip: *;');
 			// Self.el.components['animation-mixer'].mixer.timeScale = 0;
 
-			this.el.components.sound.autoplay = false;
-			this.el.components.sound.loop = true;
 			this.el.components.sound.stopSound();
 			this.el.components.sound.playSound();
 
@@ -79,6 +77,7 @@ AFRAME.registerComponent('dancer', {
 
 		this.modelMaterial.visible = this.visibility !== 0;
 
+		// console.log(sceneIntensity, this.data.intensity, this.visibility)
 		this.el.components.sound.pool.children[0].gain.gain.value = this.visibility;
 		this.modelMaterial.opacity = this.visibility;
 	}

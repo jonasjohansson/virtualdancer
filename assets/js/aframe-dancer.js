@@ -33,6 +33,7 @@ AFRAME.registerComponent('dancer', {
 			this.update();
 		});
 
+		this.el.setAttribute('sound', 'rolloffFactor: 0.25');
 
 	},
 

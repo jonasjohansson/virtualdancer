@@ -1,7 +1,7 @@
 AFRAME.registerComponent('particles', {
 
 	schema: {
-		origin: {default: {x:0, y:0, z:0}, type: 'vec3'},
+		origin: {default: {x: 0, y: 0, z: 0}, type: 'vec3'}
 	},
 
 	init() {
@@ -10,7 +10,7 @@ AFRAME.registerComponent('particles', {
 		this.t = 0;
 		this.c = new THREE.Clock();
 
-		var textureLoader = new THREE.TextureLoader();
+		const textureLoader = new THREE.TextureLoader();
 
 		this.particleSystem = new THREE.GPUParticleSystem({
 			maxParticles: 250000,
@@ -40,7 +40,7 @@ AFRAME.registerComponent('particles', {
 			timeScale: 1
 		};
 
-		// const gui = new dat.GUI({width: 350});
+		// Const gui = new dat.GUI({width: 350});
 
 		// gui.add(this.options, 'velocityRandomness', 0, 3);
 		// gui.add(this.options, 'positionRandomness', 0, 3);
@@ -60,7 +60,6 @@ AFRAME.registerComponent('particles', {
 	update() {
 		this.options.position = this.data.origin;
 		console.log(this.data.origin);
-
 	},
 
 	tick() {
@@ -73,8 +72,7 @@ AFRAME.registerComponent('particles', {
 		}
 
 		if (delta > 0) {
-			
-			// this.options.position.x = Math.sin( this.t * this.spawnerOptions.horizontalSpeed ) * 20;
+			// This.options.position.x = Math.sin( this.t * this.spawnerOptions.horizontalSpeed ) * 20;
 			// this.options.position.y = Math.sin( this.t * this.spawnerOptions.horizontalSpeed ) * 5;
 			// this.options.position.z = Math.sin( this.t * this.spawnerOptions.horizontalSpeed + this.spawnerOptions.verticalSpeed ) * 5;
 

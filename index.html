@@ -5,8 +5,6 @@
 	<meta charset="UTF-8">
 	<script src="https://unpkg.com/aframe@0.8.2/dist/aframe-master.js"></script>
 	<script src="https://unpkg.com/aframe-extras@4.1.2/dist/aframe-extras.loaders.min.js"></script>
-
-
 	<script src="https://unpkg.com/three@0.95.0/examples/js/GPUParticleSystem.js"></script>
 	<script src="https://unpkg.com/three@0.95.0/examples/js/libs/inflate.min.js"></script>
 	<script src="https://unpkg.com/three@0.95.0/examples/js/objects/Water.js"></script>
@@ -27,26 +25,38 @@
 <body>
 	<a-scene
 		keyboard-controls
-		fog="type: exponential; near: 1; far: 100; density: 0.025; color: #000"
+		xfog="type: exponential; near: 1; far: 100; density: 0.025; color: #000"
 		drama="speed: 1;">
 
 		<a-assets>
-	    <a-asset-item response-type="arraybuffer" id="pad1" src="assets/audio/vd-1-pad1.mp3" preload="auto"></audio>
-	    <a-asset-item response-type="arraybuffer" id="pad2" src="assets/audio/vd-1-pad2.mp3" preload="auto"></audio>
-	    <a-asset-item response-type="arraybuffer" id="pad3" src="assets/audio/vd-1-pad3.mp3" preload="auto"></audio>
-	    <a-asset-item response-type="arraybuffer" id="pad4" src="assets/audio/vd-1-pad4.mp3" preload="auto"></audio>
-	    <a-asset-item response-type="arraybuffer" id="pad5" src="assets/audio/vd-1-pad5.mp3" preload="auto"></audio>
-	    <a-asset-item response-type="arraybuffer" id="pad6" src="assets/audio/vd-1-pad6.mp3" preload="auto"></audio>
-	    <a-asset-item response-type="arraybuffer" id="flying_lead" src="assets/audio/vd-1-flying_lead.mp3" preload="auto"></audio>
-	    <a-asset-item response-type="arraybuffer" id="hihat" src="assets/audio/vd-1-hihat.mp3" preload="auto"></audio>
-	    <a-asset-item response-type="arraybuffer" id="sh_jam3" src="assets/audio/vd-1-sh_jam3.mp3" preload="auto"></audio>
-	    			<a-asset-item id="mountain-gltf" src="./assets/models/mountain.glb"></a-asset-item>
-	  	</a-assets>
+			<a-asset-item response-type="arraybuffer" id="pad1" src="assets/audio/vd-1-pad1.mp3" preload="auto"></a-asset-item>
+			<a-asset-item response-type="arraybuffer" id="pad2" src="assets/audio/vd-1-pad2.mp3" preload="auto"></a-asset-item>
+			<a-asset-item response-type="arraybuffer" id="pad3" src="assets/audio/vd-1-pad3.mp3" preload="auto"></a-asset-item>
+			<a-asset-item response-type="arraybuffer" id="pad4" src="assets/audio/vd-1-pad4.mp3" preload="auto"></a-asset-item>
+			<a-asset-item response-type="arraybuffer" id="pad5" src="assets/audio/vd-1-pad5.mp3" preload="auto"></a-asset-item>
+			<a-asset-item response-type="arraybuffer" id="pad6" src="assets/audio/vd-1-pad6.mp3" preload="auto"></a-asset-item>
 
-		<a-entity id="mountain"
-			positon="0 -400 0"
-			gltf-model="#mountain-gltf"
-			shadow="receive: true;"></a-entity>
+			<a-asset-item response-type="arraybuffer" id="flying_lead" src="assets/audio/vd-1-flying_lead.mp3" preload="auto"></a-asset-item>
+			<a-asset-item response-type="arraybuffer" id="arp1" src="assets/audio/vd-1-arp1.mp3" preload="auto"></a-asset-item>
+			<a-asset-item response-type="arraybuffer" id="arp2" src="assets/audio/vd-1-arp2.mp3" preload="auto"></a-asset-item>
+			<a-asset-item response-type="arraybuffer" id="hihat" src="assets/audio/vd-1-hihat.mp3" preload="auto"></a-asset-item>
+			<a-asset-item response-type="arraybuffer" id="hihat_16ths" src="assets/audio/vd-1-hihat_16ths.mp3" preload="auto"></a-asset-item>
+			<a-asset-item response-type="arraybuffer" id="sh_jam3" src="assets/audio/vd-1-sh_jam3.mp3" preload="auto"></a-asset-item>
+			<a-asset-item response-type="arraybuffer" id="melody1" src="assets/audio/vd-1-melody1.mp3" preload="auto"></a-asset-item>
+			<a-asset-item response-type="arraybuffer" id="melody2" src="assets/audio/vd-1-melody2.mp3" preload="auto"></a-asset-item>
+			<a-asset-item response-type="arraybuffer" id="melody3" src="assets/audio/vd-1-melody3.mp3" preload="auto"></a-asset-item>
+			
+			<a-asset-item id="s3t5-upperbody-low" src="./assets/models/s3t5-upperbody-low.glb"></a-asset-item>
+			<a-asset-item id="s1t12-dancing-mid" src="./assets/models/s1t12-dancing-mid.glb"></a-asset-item>
+			<a-asset-item id="s1t15-dancing-mid" src="./assets/models/s1t15-dancing-mid.glb"></a-asset-item>
+			<a-asset-item id="s4t13-dancing-high" src="./assets/models/s4t13-dancing-high.glb"></a-asset-item>
+
+		</a-assets>
+
+		<!-- <a-entity id="mountain"
+			positon="0 0 0"
+			gltf-model="#s1t13-dancing-high"
+			shadow="receive: true;"></a-entity> -->
 
 		<a-entity id="camera"
 			position="0 6 8"
@@ -66,17 +76,16 @@
 				initialPosition: 0 2 12;">
 		></a-entity>
 
-		<!-- <a-plane
-			color="#000"
-			height="100"
-			width="100"
-			rotation="-90 0 0"></a-plane> -->
-
-		<a-sky color="#000000"></a-sky>
+		<a-sky color="black"></a-sky>
 
 		<a-entity ocean></a-entity>
 
-		<!-- <a-entity environment="preset: arches; groundColor: #445; "></a-entity> -->
+		<!-- LIGHTS -->
+		<a-entity
+			light="type: ambient; intensity: 1; color: #fff;"></a-entity>
+
+		<a-entity
+			light="type: hemisphere; intensity: 0.2; color: #fff; groundColor: #fff;"></a-entity>
 
 		<a-entity sound="src: #pad1; autoplay: true; loop: true; volume: 0;" drama-layer="intensity-level: 1;"/></a-entity>
 		<a-entity sound="src: #pad2; autoplay: true; loop: true; volume: 0;" drama-layer="intensity-level: 2;"/></a-entity>
@@ -95,7 +104,7 @@
 			sound="src: ./assets/audio/vd-1-air2.mp3; autoplay: false; loop: true;"
 		></a-entity> -->
 
-		<a-entity
+		<!-- <a-entity
 			dancer="src: ./assets/models/ali-s3t5-upperbody_low.fbx; life: 5000; intensity: 0.2;"
 			sound="src: ./assets/audio/vd-1-hoarse_voice.mp3; autoplay: false; loop: true;"
 		></a-entity>
@@ -103,47 +112,16 @@
 		<a-entity
 			dancer="src: ./assets/models/ali-s3t5-upperbody_low.fbx; life: 5000; intensity: 0.4;"
 			sound="src: ./assets/audio/vd-1-sh_jam3.mp3; autoplay: false; loop: true; group: 3;"
-		></a-entity>
-
-		<!-- <a-entity
-			dancer="src: ./assets/models/; life: 5000; intensity: 0.4;"
-			sound="src: ./assets/audio/vd-1-melody1.mp3; autoplay: false; loop: true; group: 3;"
 		></a-entity> -->
 
-		<a-entity
-			dancer="src: ./assets/models/AliOut-s1t15-moving_mid.fbx; life: 5000; intensity: 0.5;"
-			sound="src: ./assets/audio/vd-1-melody2.mp3; autoplay: false; loop: true; group: 3;"
-		></a-entity>
-
-		<a-entity
-			dancer="src: ./assets/models/AliOut-s1t12-dancing_mid.fbx; life: 5000; intensity: 0.6;"
-			sound="src: ./assets/audio/vd-1-melody3.mp3; autoplay: false; loop: true; group: 3;"
-		></a-entity>
-
-		<!-- <a-entity
-			dancer="src: ./assets/models/; life: 5000; intensity: 0.8;"
-			sound="src: ./assets/audio/vd-1-hihat.mp3; autoplay: false; loop: true; group: 2;"
-		></a-entity> -->
-
-		<!-- <a-entity
-			dancer="src: ./assets/models/; life: 5000; intensity: 1;"
-			sound="src: ./assets/audio/vd-1-flying_lead.mp3; autoplay: false; loop: true;"
-		></a-entity> -->
-
-		<!-- <a-entity
-			dancer="src: ./assets/models/; life: 5000; intensity: 1;"
-			sound="src: ./assets/audio/vd-1-arp1.mp3; autoplay: false; loop: true;"
-		></a-entity> -->
-
-		<a-entity
-			dancer="src: ./assets/models/AliOut-s1t13-dancing_high.fbx; life: 5000; intensity: 1;"
-			sound="src: ./assets/audio/vd-1-arp2.mp3; autoplay: false; loop: true;"
-		></a-entity>
-
-		<a-entity
-			dancer="src: ./assets/models/AliOut-s1t13-dancing_high.fbx; life: 5000; intensity: 1;"
-			sound="src: ./assets/audio/vd-1-hihat_16ths.mp3; autoplay: false; loop: true;"
-		></a-entity>
+		<a-entity gltf-model="#s1t12-dancing-mid" sound="src: #melody1" dancer="life: 5000; intensity: 0.4;"></a-entity>
+		<a-entity gltf-model="#s1t12-dancing-mid" sound="src: #melody2" dancer="life: 5000; intensity: 0.5;"></a-entity>
+		<a-entity gltf-model="#s1t15-dancing-mid" sound="src: #melody3" dancer="life: 5000; intensity: 0.6;"></a-entity>
+		<a-entity gltf-model="#s4t13-dancing-high" sound="src: #hihat" dancer="life: 5000; intensity: 0.8;"></a-entity>
+		<a-entity gltf-model="#s4t13-dancing-high" sound="src: #flying_lead" dancer="life: 5000; intensity: 1;"></a-entity>
+		<a-entity gltf-model="#s4t13-dancing-high" sound="src: #arp1" dancer="life: 5000; intensity: 1;"></a-entity>
+		<a-entity gltf-model="#s4t13-dancing-high" sound="src: #arp2" dancer="life: 5000; intensity: 1;"></a-entity>
+		<a-entity gltf-model="#s4t13-dancing-high" sound="src: #hihat_16ths" dancer="life: 5000; intensity: 1;"></a-entity>
 
 	</a-scene>
 </body>

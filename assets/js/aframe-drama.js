@@ -2,11 +2,11 @@
  * Projects a value from one range to another
  */
 function cast(toUpper, toLower, fromUpper, fromLower, val) {
-  if (toUpper === toLower) {
-    return toUpper
-  }
+	if (toUpper === toLower) {
+		return toUpper;
+	}
 
-  return (val - fromLower) * (toUpper - toLower) / (fromUpper - fromLower) + toLower
+	return (val - fromLower) * (toUpper - toLower) / (fromUpper - fromLower) + toLower;
 }
 
 /**
@@ -15,17 +15,17 @@ function cast(toUpper, toLower, fromUpper, fromLower, val) {
 AFRAME.registerComponent('drama', {
 
 	schema: {
-		speed: {default: 1},
+		speed: {default: 1}
 	},
 
 	init() {},
 
 	tick() {
-		const value = Math.sin((this.el.sceneEl.time / 8000) - Math.PI)
-		const normalisedValue = cast(1, 0, 1, -1, value)
-		const modifiedNormalisedValue = Math.pow(normalisedValue, 2)
-		this.intensity = modifiedNormalisedValue
-		// console.log(this.intensity)
+		const value = Math.sin((this.el.sceneEl.time / 8000) - Math.PI);
+		const normalisedValue = cast(1, 0, 1, -1, value);
+		const modifiedNormalisedValue = Math.pow(normalisedValue, 2);
+		this.intensity = modifiedNormalisedValue;
+		// Console.log(this.intensity)
 	}
 
-})
+});

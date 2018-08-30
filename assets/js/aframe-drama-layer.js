@@ -1,33 +1,33 @@
 AFRAME.registerComponent('drama-layer', {
 	schema: {
-		intensityLevel: {default: 0},
+		intensityLevel: {default: 0}
 	},
 
 	init() {
-		this.enabled = false
+		this.enabled = false;
 	},
 
 	tick() {
-		const intensity = this.el.sceneEl.components.drama.intensity
+		const intensity = this.el.sceneEl.components.drama.intensity;
 
-		// const level = Math.floor(this.el.sceneEl.components.drama.intensity / 0.33333)
-		let level = 0
+		// Const level = Math.floor(this.el.sceneEl.components.drama.intensity / 0.33333)
+		let level = 0;
 		if (intensity > 0.9) {
-			level = 2
+			level = 2;
 		} else if (intensity > 0.22) {
-			level = 1
+			level = 1;
 		}
 
-		const enabled = this.data.intensityLevel <= level
+		const enabled = this.data.intensityLevel <= level;
 
 		if (enabled !== this.enabled) {
-			const context = this.el.components.sound.listener.context
-			const gain = this.el.components.sound.pool.children[0].gain.gain
-			console.log('RAMP!', context.currentTime)
-			gain.linearRampToValueAtTime(enabled ? 1 : 0.000001, context.currentTime + 2)
-			// gain.value = enabled ? 1 : 0
+			const context = this.el.components.sound.listener.context;
+			const gain = this.el.components.sound.pool.children[0].gain.gain;
+			console.log('RAMP!', context.currentTime);
+			gain.linearRampToValueAtTime(enabled ? 1 : 0.000001, context.currentTime + 2);
+			// Gain.value = enabled ? 1 : 0
 
-			this.enabled = enabled
+			this.enabled = enabled;
 		}
 	}
-})
+});

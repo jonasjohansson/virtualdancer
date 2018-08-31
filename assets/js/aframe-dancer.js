@@ -1,9 +1,10 @@
 AFRAME.registerComponent('dancer', {
 
 	schema: {
-		life: {default: 5000},
+		life: {default: 20000},
 		fade: {default: 2000},
-		intensity: {default: 0.5}
+		intensity: {default: 0.5},
+		scale: {default: 2.4}
 	},
 
 	init() {
@@ -25,12 +26,13 @@ AFRAME.registerComponent('dancer', {
 			self.el.setAttribute('animation-mixer', 'clip: *;');
 			// Self.el.components['animation-mixer'].mixer.timeScale = 0;
 
-			this.el.components.sound.stopSound();
-			this.el.components.sound.playSound();
+			self.el.object3D.scale.set(data.scale, data.scale, data.scale);
+			self.el.components.sound.stopSound();
+			self.el.components.sound.playSound();
 
-			this.modelMaterial = modelMaterial;
+			self.modelMaterial = modelMaterial;
 
-			this.update();
+			self.update();
 		});
 
 		this.el.setAttribute('sound', 'rolloffFactor: 0.25');

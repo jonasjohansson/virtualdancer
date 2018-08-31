@@ -15,13 +15,13 @@ AFRAME.registerComponent('ocean', {
 			{
 				textureWidth: 512,
 				textureHeight: 512,
-				waterNormals: new THREE.TextureLoader().load('./assets/textures/waternormals.jpg', texture => {
+				waterNormals: new THREE.TextureLoader().load('./assets/textures/waternormals2.jpg', texture => {
 					texture.wrapS = texture.wrapT = THREE.RepeatWrapping;
 				}),
 				alpha: 1.0,
 				sunDirection: light.position.clone().normalize(),
 				sunColor: 0xFFFFFF,
-				waterColor: 0x001E0F,
+				waterColor: 0x000000,
 				distortionScale: 3.7,
 				fog: scene.fog !== undefined
 			}
@@ -33,19 +33,19 @@ AFRAME.registerComponent('ocean', {
 
 		const sky = new THREE.Sky();
 		sky.scale.setScalar(10000);
-		// Scene.add( sky );
+		scene.add( sky );
 
 		const uniforms = sky.material.uniforms;
 
 		uniforms.turbidity.value = 10;
-		uniforms.rayleigh.value = 2;
-		uniforms.luminance.value = 1;
+		uniforms.rayleigh.value = 22;
+		uniforms.luminance.value = 21;
 		uniforms.mieCoefficient.value = 0.005;
 		uniforms.mieDirectionalG.value = 0.8;
 
 		const parameters = {
-			distance: 400,
-			inclination: 2.49,
+			distance: 10,
+			inclination: 1.49,
 			azimuth: 0.205
 		};
 
@@ -68,11 +68,11 @@ AFRAME.registerComponent('ocean', {
 
 		this.water = water;
 
-		// UpdateSun();
+		updateSun();
 	},
 
 	tick() {
-		let speed = 480 - (360 * this.el.sceneEl.components.drama.intensity);
+		let speed = 480 - (240 * this.el.sceneEl.components.drama.intensity);
 		this.water.material.uniforms.time.value += 1.0 / speed;
 	}
 });

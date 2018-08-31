@@ -9,31 +9,6 @@ https://github.com/jeromeetienne/AR.js/
 	<script src="https://rawgit.com/jeromeetienne/AR.js/master/aframe/build/aframe-ar.min.js"></script>
 	<script src="https://unpkg.com/aframe-extras@4.1.2/dist/aframe-extras.loaders.min.js"></script>
 	<script src="https://unpkg.com/three@0.95.0/examples/js/libs/inflate.min.js"></script>
-
-	<script>
-	AFRAME.registerComponent('dancer', {
-
-		schema: {
-		},
-
-		init() {
-			const data = this.data;
-
-			const self = this;
-
-			this.visibility = 0;
-
-			this.el.addEventListener('model-loaded', () => {
-				let model = this.el.components['gltf-model'].model.children[0].children[0];
-				let modelMaterial = model.material;
-
-				self.el.setAttribute('animation-mixer', 'clip: *;');
-
-				this.modelMaterial = modelMaterial;
-			});
-		},
-	});
-	</script>
 </head>
 <body style="margin:0;">
 	<a-scene embedded arjs="
@@ -52,15 +27,15 @@ https://github.com/jeromeetienne/AR.js/
 		<a-asset-item id="high3" src="../assets/models/s4t13-dancing-high.glb"></a-asset-item>
 
 		<a-marker type="pattern" url="../assets/ar/pattern-marker-vd-2.patt">
-			<a-entity gltf-model="#mid1" dancer=""></a-entity>
+			<a-entity gltf-model="#mid1" animation-mixer="clip: *"></a-entity>
 		</a-marker>
 
 		<a-marker type="pattern" url="../assets/ar/pattern-marker-vd-3.patt">
-			<a-entity gltf-model="#high2" dancer=""></a-entity>
+			<a-entity gltf-model="#high2" animation-mixer="clip: *"></a-entity>
 		</a-marker>
 
 		<a-marker type="pattern" url="../assets/ar/pattern-marker-vd-4.patt">
-			<a-entity gltf-model="#high3" dancer=""></a-entity>
+			<a-entity gltf-model="#high3" animation-mixer="clip: *"></a-entity>
 		</a-marker>
 
 		<a-entity camera></a-entity>

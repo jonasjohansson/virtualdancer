@@ -267,9 +267,7 @@
 	<rect x="298.2" y="255.4" class="st2" width="42.2" height="42.2"/>
 </g>
 <g id="PATTERN_SIMPLE_copy">
-	<rect x="298.2" y="171" width="42.2" height="42.2"/>
-	<rect x="256" y="171" width="42.2" height="42.2"/>
-	<rect x="298.2" y="213.2" width="42.2" height="42.2"/>
+	<polygon points="298.2,171 256,171 256,213.2 298.2,213.2 298.2,255.4 340.4,255.4 340.4,213.2 340.4,171 	"/>
 </g>
 <g id="PATTERN_SIMPLEST_copy" class="st0">
 	<rect x="171.9" y="171.1" class="st2" width="84.1" height="42.2"/>
@@ -279,8 +277,7 @@
 	<rect x="171.9" y="171.1" class="st2" width="168.5" height="42.2"/>
 </g>
 <g id="PATTERN_SIMPLEST_copy_4" class="st0">
-	<rect x="171.9" y="171.1" class="st2" width="168.5" height="42.2"/>
-	<rect x="298.2" y="213.3" class="st2" width="42.2" height="126.5"/>
+	<polygon class="st2" points="171.9,171.1 171.9,213.3 298.2,213.3 298.2,339.8 340.4,339.8 340.4,213.3 340.4,171.1 	"/>
 </g>
 <g id="PATTERN_SIMPLEST_copy_2" class="st0">
 	<rect x="281.2" y="192.2" class="st2" width="42.2" height="42.2"/>

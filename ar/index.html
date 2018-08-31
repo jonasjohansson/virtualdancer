@@ -15,19 +15,23 @@ https://github.com/jeromeetienne/AR.js/
 		debugUIEnabled: false; 
 		detectionMode: mono; 
 		maxDetectionRate: 30;
-		xsourceType: webcam;
-		sourceType: image;
-		sourceUrl: ../assets/ar/ar-marker-vd-3.png;
-		canvasWidth: 240;
-		canvasHeight: 180;
+		sourceType: webcam;
+		XsourceType: image;
+		XsourceUrl: ../assets/ar/ar-marker-vd-3.png;
+		XcanvasWidth: 240;
+		XcanvasHeight: 180;
 		cameraParametersUrl: ../assets/ar/camera_para.dat">
 
-		<a-marker type="pattern" url="../assets/ar/pattern-marker-vd-3.patt">
-			<a-box color="red" scale="0.1 0.1 0.1"></a-box>
+		<a-marker type="pattern" url="../assets/ar/pattern-marker-vd-4.patt">
+			<a-box color="red" position="0.1 0 0" scale="0.1 0.1 0.1"></a-box>
 		</a-marker>
 
 		<a-marker type="pattern" url="../assets/ar/pattern-marker-vd-2.patt">
-			<a-box color="blue" scale="0.1 0.1 0.1"></a-box>
+			<a-box color="green" position="0 0 0.1" scale="0.1 0.1 0.1"></a-box>
+		</a-marker>
+
+		<a-marker type="pattern" url="../assets/ar/pattern-marker-vd-3.patt">
+			<a-box color="blue" position="-0.1 0 0" scale="0.1 0.1 0.1"></a-box>
 		</a-marker>
 
 		<a-entity camera></a-entity>

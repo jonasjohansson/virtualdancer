@@ -85,12 +85,14 @@
 			<a-asset-item id="cliff-4" src="./assets/models/cliff-4.glb"></a-asset-item>
 		</a-assets>
 
+		<!-- CAMERA -->
+
 		<a-entity id="camera"
 			position="0 1.6 6"
 			camera="fov: 40; zoom: 1; far: 10000; near: 1;"
-			look-controls
+			xlook-controls
 			orbit-controls="
-				xautoRotate: true;
+				autoRotate: true;
 				autoRotateSpeed: 0.05;
 				enablePan: false;
 				enableDamping: true;
@@ -104,11 +106,18 @@
 				target: 0 0 0;"
 		></a-entity>
 
+		<!-- CAMERA VR -->
+
+		<a-entity id="camera-vr"
+			position="0 1.6 6"
+			camera="fov: 40; zoom: 1; far: 10000; near: 1;"
+		></a-entity>
+
 		<!-- ENVIRONMENT -->
 
 		<a-sky color="black"></a-sky>
 
-		<a-entity ocean></a-entity>
+		<a-entity id="ocean" ocean></a-entity>
 
 		<a-entity id="cliffs">
 			<a-entity
@@ -133,10 +142,10 @@
 		<!-- LIGHTS -->
 
 		<a-entity
-			light="type: ambient; intensity: 1; color: #fff;"></a-entity>
+			light="type: ambient; color: #fff; intensity: 1;"></a-entity>
 
 		<a-entity
-			light="type: hemisphere; intensity: 0.2; color: #fff; groundColor: #fff;"></a-entity>
+			light="type: hemisphere; color: #fff; groundColor: #fff; intensity: 0.2;"></a-entity>
 
 		<!-- PAD LAYERS -->
 

@@ -83,15 +83,15 @@ AFRAME.registerComponent('dancer', {
 			0;
 
 		if (visibility === 0 && this.visibility > 0) {
-			this.update();
+			// this.update();
 		}
 
 		this.visibility = visibility;
 
-		this.material.visible = this.visibility !== 0;
+		// this.material.visible = this.visibility !== 0;
 
 		this.el.components.sound.pool.children[0].gain.gain.value = this.visibility;
-		this.material.opacity = this.visibility;
+		// this.material.opacity = this.visibility;
 	}
 });
 

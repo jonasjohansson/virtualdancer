@@ -13,36 +13,45 @@ AFRAME.registerComponent('dancer', {
 
 		const self = this;
 
+		// console.log(data);
+
 		this.visibility = 0;
 
 		this.el.addEventListener('model-loaded', () => {
-			let model = this.el.components['gltf-model'].model.children[0].children[0];
-			let modelMaterial = model.material;
 
-			modelMaterial.opacity = modelMaterial.visible = 0;
-			modelMaterial.transparent = true;
-			modelMaterial.needsUpdate = true;
+			let model = this.el.components['gltf-model'].model;
+
+			let mesh = model.children[0].children[0];
+			let animation = model.animations[0];
+			let duration = animation.duration;
+			let material = mesh.material;
+
+			material.opacity = material.visibility = 1;
+			material.transparent = true;
+			material.needsUpdate = true;
 
 			self.el.setAttribute('animation-mixer', 'clip: *;');
-			// Self.el.components['animation-mixer'].mixer.timeScale = 0;
+			self.el.components['animation-mixer'].mixer.update(5 + Math.random()*duration);
+			// self.el.components['animation-mixer'].mixer.timeScale = 2;
 
 			self.el.object3D.scale.set(data.scale, data.scale, data.scale);
 			self.el.components.sound.stopSound();
 			self.el.components.sound.playSound();
 
-			self.modelMaterial = modelMaterial;
+			self.material = material;
 
 			self.update();
 		});
 
+		this.el.setAttribute('sound', 'loop: true');
 		this.el.setAttribute('sound', 'rolloffFactor: 0.25');
 
 	},
 
 	update() {
 
-		const dist = 90;
-		const deg = 90;
+		const dist = 40;
+		const deg = 360;
 
 		const pos = {
 			x: getRand(dist),
@@ -56,13 +65,14 @@ AFRAME.registerComponent('dancer', {
 			z: 0
 		};
 
+	console.log(pos.x);
 		this.el.object3D.position.set(pos.x, pos.y, pos.z);
 		this.el.object3D.rotation.set(rot.x, rot.y, rot.z);
-		// This.el.setAttribute('particles', `origin: ${pos.x} ${pos.y} ${pos.z};`);
+		// this.el.setAttribute('particles', `origin: ${pos.x} ${pos.y} ${pos.z};`);
 	},
 
 	tick() {
-		if (!this.modelMaterial) {
+		if (!this.material) {
 			return;
 		}
 
@@ -78,14 +88,14 @@ AFRAME.registerComponent('dancer', {
 
 		this.visibility = visibility;
 
-		this.modelMaterial.visible = this.visibility !== 0;
+		this.material.visible = this.visibility !== 0;
 
-		// console.log(sceneIntensity, this.data.intensity, this.visibility)
 		this.el.components.sound.pool.children[0].gain.gain.value = this.visibility;
-		this.modelMaterial.opacity = this.visibility;
+		this.material.opacity = this.visibility;
 	}
 });
 
-const getRand = val => {
-	return Math.random(val) * Math.random() < 0.5 ? -1 : 1;
+getRand = val => {
+	let r = Math.random() < 0.5 ? -1 : 1;
+	return Math.random() * val * r;
 };

@@ -66,23 +66,7 @@
 			<a-asset-item id="hihat" src="assets/audio/vd-1-hihat.mp3" preload="auto" response-type="arraybuffer"></a-asset-item>
 			<a-asset-item id="flying_lead" src="assets/audio/vd-1-flying_lead.mp3" preload="auto" response-type="arraybuffer"></a-asset-item>
 
-			<!-- <a-asset-item id="low1" src="./assets/models/s1t1-dancing-low.glb"></a-asset-item> -->
-			<a-asset-item id="low2" src="./assets/models/s3t5-upperbody-low.glb"></a-asset-item>
-			<!-- <a-asset-item id="low3" src="./assets/models/s4t1-ground-low.glb"></a-asset-item> -->
-			<!-- <a-asset-item id="low4" src="./assets/models/s4t2-ground-low.glb"></a-asset-item> -->
-			<a-asset-item id="low5" src="./assets/models/s4t3-ground-low.glb"></a-asset-item>
-
-			<a-asset-item id="mid1" src="./assets/models/s1t12-dancing-mid.glb"></a-asset-item>
-			<a-asset-item id="mid2" src="./assets/models/s1t15-moving-mid.glb"></a-asset-item>
-			<a-asset-item id="mid3" src="./assets/models/s2t12-moving-mid.glb"></a-asset-item>
-			<a-asset-item id="mid4" src="./assets/models/s4t6-moving-mid.glb"></a-asset-item>
-			<!-- <a-asset-item id="high1" src="./assets/models/s1t2-dancing-high.glb"></a-asset-item> -->
-			<a-asset-item id="high2" src="./assets/models/s1t10-running-high.glb"></a-asset-item>
-			<a-asset-item id="high3" src="./assets/models/s4t13-dancing-high.glb"></a-asset-item>
-
-			<a-asset-item id="cliff-1" src="./assets/models/cliff-1.glb"></a-asset-item>
-			<a-asset-item id="cliff-3" src="./assets/models/cliff-3.glb"></a-asset-item>
-			<a-asset-item id="cliff-4" src="./assets/models/cliff-4.glb"></a-asset-item>
+			<a-asset-item id="s4t12" src="./assets/models/S4T12.glb"></a-asset-item>
 		</a-assets>
 
 		<!-- CAMERA -->
@@ -156,24 +140,23 @@
 		<a-entity sound="src: #pad5; autoplay: true; loop: true; volume: 0;" drama-layer="intensity-level: 1;"/></a-entity>
 		<a-entity sound="src: #pad6; autoplay: true; loop: true; volume: 0;" drama-layer="intensity-level: 2;"/></a-entity>
 
-
 		<!-- DANCERS -->
-
 		<a-entity id="dancers">
-			<a-entity gltf-model="#low2" sound="src: #air1; loop: true;" dancer="intensity: 0.1;"></a-entity>
-			<a-entity gltf-model="#low2" sound="src: #air2; loop: true;" dancer="intensity: 0.15;"></a-entity>
-			<a-entity gltf-model="#low3" sound="src: #hoarse_voice; loop: true;" dancer="intensity: 0.2;"></a-entity>
-			<a-entity gltf-model="#low4" sound="src: #water_fm; loop: true;" dancer="intensity: 0.4;"></a-entity>
-
-			<a-entity gltf-model="#mid1" sound="src: #melody2; loop: true;" dancer="intensity: 0.4;"></a-entity>
-			<a-entity gltf-model="#mid2" sound="src: #star_short; loop: true;" dancer="intensity: 0.5;"></a-entity>
-			<a-entity gltf-model="#mid2" sound="src: #bell_strings; loop: true;" dancer="intensity: 0.6;"></a-entity>
-
-			<a-entity gltf-model="#high1" sound="src: #tom2; loop: true;" dancer="intensity: 0.8;"></a-entity>
-			<a-entity gltf-model="#high1" sound="src: #sh_jam3; loop: true;" dancer="intensity: 1;"></a-entity>
-			<a-entity gltf-model="#high2" sound="src: #hihat; loop: true;" dancer="intensity: 1;"></a-entity>
-			<a-entity gltf-model="#high2" sound="src: #flying_lead; loop: true;" dancer="intensity: 1;"></a-entity>
-			<a-entity gltf-model="#high3" sound="src: #chime_pad; loop: true;" dancer="intensity: 1;"></a-entity>
+			<!-- LOW -->
+			<a-entity gltf-model="#s4t12" dancer="intensity: 0.1" sound="src: #air1" ></a-entity>
+			<a-entity gltf-model="#s4t12" dancer="intensity: 0.15" sound="src: #air2"></a-entity>
+			<a-entity gltf-model="#s4t12" dancer="intensity: 0.2" sound="src: #hoarse_voice"></a-entity>
+			<a-entity gltf-model="#s4t12" dancer="intensity: 0.4" sound="src: #water_fm"></a-entity>
+			<!-- MID -->
+			<a-entity gltf-model="#s4t12" dancer="intensity: 0.4" sound="src: #melody2"></a-entity>
+			<a-entity gltf-model="#s4t12" dancer="intensity: 0.5" sound="src: #star_short"></a-entity>
+			<a-entity gltf-model="#s4t12" dancer="intensity: 0.6" sound="src: #bell_strings"></a-entity>
+			<!-- HIGH -->
+			<a-entity gltf-model="#s4t12" dancer="intensity: 0.8" sound="src: #tom2"></a-entity>
+			<a-entity gltf-model="#s4t12" dancer="intensity: 1" sound="src: #sh_jam3"></a-entity>
+			<a-entity gltf-model="#s4t12" dancer="intensity: 1" sound="src: #hihat"></a-entity>
+			<a-entity gltf-model="#s4t12" dancer="intensity: 1" sound="src: #flying_lead"></a-entity>
+			<a-entity gltf-model="#s4t12" dancer="intensity: 1" sound="src: #chime_pad"></a-entity>
 		</a-entity>
 
 	</a-scene>

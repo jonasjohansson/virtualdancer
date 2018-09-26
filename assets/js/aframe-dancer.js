@@ -55,7 +55,7 @@ AFRAME.registerComponent('dancer', {
 
 		const pos = {
 			x: getRand(dist),
-			y: -0.3,
+			y: getRand(3,false),
 			z: getRand(dist)
 		};
 
@@ -95,7 +95,10 @@ AFRAME.registerComponent('dancer', {
 	}
 });
 
-getRand = val => {
+getRand = (val, neg = true) => {
 	let r = Math.random() < 0.5 ? -1 : 1;
+	if (neg == false){
+		r = -1;
+	}
 	return Math.random() * val * r;
 };

@@ -108,7 +108,8 @@ body.entered main {
 	background-color:transparent;
 }
 
-.a-enter-vr {
+body .a-enter-vr-button,
+body .a-enter-vr {
 	display:none!important;
 }
 

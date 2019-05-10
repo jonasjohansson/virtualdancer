@@ -108,6 +108,10 @@ body.entered main {
 	background-color:transparent;
 }
 
+.a-enter-vr {
+	display:none!important;
+}
+
 body:not(.entered) .a-enter-vr-button {
 	/*z-index:-1;*/
 }

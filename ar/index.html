@@ -1,6 +1,48 @@
 <html>
 	<head>
-		<meta http-equiv="refresh" content="2; url = https://dove-ar.glitch.me/" />
+		<script src="https://unpkg.com/aframe@0.8.2/dist/aframe-master.js"></script>
+		<script src="https://rawgit.com/jeromeetienne/AR.js/master/aframe/build/aframe-ar.min.js"></script>
+		<script src="https://unpkg.com/aframe-extras@4.1.2/dist/aframe-extras.loaders.min.js"></script>
+		<script src="https://unpkg.com/three@0.95.0/examples/js/libs/inflate.min.js"></script>
+		<style>
+			.a-enter-vr {
+				display: none !important;
+			}
+		</style>
 	</head>
-	<body style="margin:0;"></body>
+	<body style="margin:0;">
+		<a-scene
+			embedded
+			arjs="
+	debugUIEnabled: false; 
+	detectionMode: mono; 
+	maxDetectionRate: 30;
+	sourceType: webcam;
+	XsourceType: image;
+	XsourceUrl: ../assets/ar/ar-marker-vd-3.png;
+	XcanvasWidth: 240;
+	XcanvasHeight: 180;
+	cameraParametersUrl: ../assets/ar/camera_para.dat"
+		>
+			<a-assets>
+				<a-asset-item id="a" src="../assets/models/nme-1.glb"></a-asset-item>
+				<a-asset-item id="b" src="../assets/models/nme-1.glb"></a-asset-item>
+				<a-asset-item id="c" src="../assets/models/nme-1.glb"></a-asset-item>
+			</a-assets>
+
+			<a-marker type="pattern" url="../assets/ar/pattern-AR Marker Generator E.patt">
+				<a-entity gltf-model="#a" animation-mixer="clip: *"></a-entity>
+			</a-marker>
+
+			<a-marker type="pattern" url="../assets/ar/pattern-AR Marker Generator B.patt">
+				<a-entity gltf-model="#b" animation-mixer="clip: *"></a-entity>
+			</a-marker>
+
+			<a-marker type="pattern" url="../assets/ar/pattern-AR Marker Generator C.patt">
+				<a-entity gltf-model="#c" animation-mixer="clip: *"></a-entity>
+			</a-marker>
+
+			<a-entity camera></a-entity>
+		</a-scene>
+	</body>
 </html>

@@ -15,8 +15,10 @@
 		<a-scene embedded arjs="cameraParametersUrl: ../assets/ar/camera_para.dat">
 			<a-assets>
 				<a-asset-item id="a" src="../assets/models/nme-1.glb"></a-asset-item>
-				<a-asset-item id="b" src="../assets/models/nme-1.glb"></a-asset-item>
-				<a-asset-item id="c" src="../assets/models/nme-1.glb"></a-asset-item>
+				<a-asset-item id="b" src="../assets/models/ali_s2t12_moving_mid.glb"></a-asset-item>
+				<a-asset-item id="c" src="../assets/models/s4t6_moving_mid.glb"></a-asset-item>
+				<a-asset-item id="d" src="../assets/models/s4t5_moving_mid.glb"></a-asset-item>
+				<a-asset-item id="e" src="../assets/models/s4t3_ground_low.glb"></a-asset-item>
 			</a-assets>
 
 			<a-marker type="pattern" url="../assets/ar/pattern-AR Marker Generator E.patt">
@@ -32,7 +34,7 @@
 			</a-marker>
 
 			<a-marker type="pattern" url="../assets/ar/pattern-AR Marker Generator D.patt">
-				<a-entity gltf-model="#c" animation-mixer="clip: *"></a-entity>
+				<a-entity gltf-model="#d" animation-mixer="clip: *"></a-entity>
 			</a-marker>
 
 			<a-entity camera></a-entity>

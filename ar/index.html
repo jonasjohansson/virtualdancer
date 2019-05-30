@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html>
 	<head>
+		<title>NME_AR</title>
+		<meta charset="UTF-8" />
 		<script src="https://aframe.io/releases/0.9.1/aframe.min.js"></script>
 		<script src="https://cdn.rawgit.com/jeromeetienne/AR.js/1.7.0/aframe/build/aframe-ar.js"></script>
 		<script src="https://unpkg.com/aframe-extras@4.1.2/dist/aframe-extras.loaders.min.js"></script>
@@ -12,7 +14,11 @@
 		</style>
 	</head>
 	<body style="margin: 0px; overflow: hidden;">
-		<a-scene embedded arjs="cameraParametersUrl: ../assets/ar/camera_para.dat">
+		<a-scene
+			embedded
+			arjs="cameraParametersUrl: ../assets/ar/camera_para.dat; debugUIEnabled: false"
+			loading-screen="backgroundColor: black"
+		>
 			<a-assets>
 				<a-asset-item id="b" src="../assets/models/ali_s2t12_moving_mid.glb"></a-asset-item>
 				<a-asset-item id="c" src="../assets/models/s4t12_dancing_mid.glb"></a-asset-item>

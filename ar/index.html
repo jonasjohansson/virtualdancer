@@ -35,27 +35,45 @@
 				<a-asset-item id="hihat" src="../assets/audio/vd-1-hihat.mp3" preload="auto" response-type="arraybuffer"></a-asset-item>
 			</a-assets>
 
-			<a-marker type="pattern" url="../assets/ar/pattern-AR Marker Generator E.patt">
+			<a-marker type="pattern" url="../assets/ar/pattern-AR Marker Generator E.patt" soundhandler>
 				<a-entity gltf-model="#b" animation-mixer="clip: *"></a-entity>
 				<a-entity sound="src: #air2; autoplay: true; loop: true;" /></a-entity>
 			</a-marker>
 
-			<a-marker type="pattern" url="../assets/ar/pattern-AR Marker Generator B.patt">
+			<a-marker type="pattern" url="../assets/ar/pattern-AR Marker Generator B.patt" soundhandler>
 				<a-entity gltf-model="#c" animation-mixer="clip: *"></a-entity>
 				<a-entity sound="src: #melody2; autoplay: true; loop: true;" /></a-entity>
 			</a-marker>
 
-			<a-marker type="pattern" url="../assets/ar/pattern-AR Marker Generator C.patt">
+			<a-marker type="pattern" url="../assets/ar/pattern-AR Marker Generator C.patt" soundhandler>
 				<a-entity gltf-model="#d" animation-mixer="clip: *"></a-entity>
 				<a-entity sound="src: #bell_strings; autoplay: true; loop: true;" /></a-entity>
 			</a-marker>
 
-			<a-marker type="pattern" url="../assets/ar/pattern-AR Marker Generator D.patt">
+			<a-marker type="pattern" url="../assets/ar/pattern-AR Marker Generator D.patt" soundhandler>
 				<a-entity gltf-model="#e" animation-mixer="clip: *"></a-entity>
 				<a-entity sound="src: #hihat; autoplay: true; loop: true;" /></a-entity>
 			</a-marker>
 
 			<a-entity camera></a-entity>
 		</a-scene>
+
+		<script>
+		AFRAME.registerComponent('soundhandler', {
+			init: function() {
+				this.sound = this.el.querySelector('[sound]');
+				this.marker = this.el;
+			},
+
+			tick: function () {
+				 if (this.marker.object3D.visible == true) {
+					this.sound.components.sound.playSound();
+				} else {
+					this.sound.components.sound.pauseSound();
+				}
+
+			 }
+		});
+		</script>
 	</body>
 </html>

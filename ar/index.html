@@ -24,22 +24,35 @@
 				<a-asset-item id="c" src="../assets/models/s4t12_dancing_mid.glb"></a-asset-item>
 				<a-asset-item id="d" src="../assets/models/s4t5_moving_mid.glb"></a-asset-item>
 				<a-asset-item id="e" src="../assets/models/s4t3_ground_low.glb"></a-asset-item>
+				<a-asset-item id="air2" src="assets/audio/vd-1-air2.mp3" preload="auto" response-type="arraybuffer"></a-asset-item>
+				<a-asset-item id="melody2" src="assets/audio/vd-1-melody2.mp3" preload="auto" response-type="arraybuffer"></a-asset-item>
+				<a-asset-item
+					id="bell_strings"
+					src="assets/audio/vd-1-bell_strings.mp3"
+					preload="auto"
+					response-type="arraybuffer"
+				></a-asset-item>
+				<a-asset-item id="hihat" src="assets/audio/vd-1-hihat.mp3" preload="auto" response-type="arraybuffer"></a-asset-item>
 			</a-assets>
 
 			<a-marker type="pattern" url="../assets/ar/pattern-AR Marker Generator E.patt">
 				<a-entity gltf-model="#b" animation-mixer="clip: *"></a-entity>
+				<a-entity sound="src: #air2; autoplay: true; loop: true;" /></a-entity>
 			</a-marker>
 
 			<a-marker type="pattern" url="../assets/ar/pattern-AR Marker Generator B.patt">
 				<a-entity gltf-model="#c" animation-mixer="clip: *"></a-entity>
+				<a-entity sound="src: #melody2; autoplay: true; loop: true;" /></a-entity>
 			</a-marker>
 
 			<a-marker type="pattern" url="../assets/ar/pattern-AR Marker Generator C.patt">
 				<a-entity gltf-model="#d" animation-mixer="clip: *"></a-entity>
+				<a-entity sound="src: #bell_strings; autoplay: true; loop: true;" /></a-entity>
 			</a-marker>
 
 			<a-marker type="pattern" url="../assets/ar/pattern-AR Marker Generator D.patt">
 				<a-entity gltf-model="#e" animation-mixer="clip: *"></a-entity>
+				<a-entity sound="src: #hihat; autoplay: true; loop: true;" /></a-entity>
 			</a-marker>
 
 			<a-entity camera></a-entity>
